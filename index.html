@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js"></script>
+  </head>
+  <body>
+    <h1>Тут ви можете малювати своє зображення</h1>
+    <p>
+      Налаштувати ширину
+      <input type="text" onchange="setWidth(this.value)" />
+      Налаштувати висоту
+      <input type="text" onchange="setHeight(this.value)" />
+    </p>
+    <canvas
+      id="canvas1"
+      onmousedown="startPaint()"
+      onmousemove="doPaint(event.offsetX, event.offsetY)"
+      onmouseup="endPaint()"
+    >
+    </canvas>
+    <p>
+      Колір пензля
+      <input type="color" value="#002012" onchange="changeColor(this.value)" />
+      Розмір пензля
+      <input
+        type="range"
+        id="sizeInput"
+        min="1"
+        max="50"
+        value="50"
+        oninput="resizeBrush(this.value)"
+      />
+      <output id="sizeOutput"> 50</output>
+    </p>
+    <p>
+      <input
+        type="button"
+        id="clear"
+        value="Clear Canvas"
+        onclick="clearCanvas()"
+      />
+    </p>
+  </body>
+</html>
